@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SE151042</string>
+    <string-array name="quicach_array">
+        <item>Sinh Vien 1</item>
+        <item>Sinh Vien 2</item>
+        <item>Sinh Vien 3</item>
+        <item>Sinh Vien 4</item>
+        <item>NJS1601</item>
+        <item>NJS1602</item>
+        <item>NJS1603</item>
+        <item>NJS1604</item>
+        <item>NJS1605</item>
+    </string-array>
+    <string-array name="nhasx_array">
+        <item>Ky Thuat Phan Mem</item>
+        <item>Kinh te</item>
+        <item>Do hoa</item>
+        <item>AI</item>
+        <item>BA</item>
+        <item>An Toan Thong Tin</item>
+    </string-array>
+</resources>
