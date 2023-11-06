@@ -53,6 +53,7 @@ public class Adapter extends BaseAdapter {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+        notifyDataSetChanged();
     }
 
     public void setNsxList(List<Nsx> nsxList) {
@@ -64,10 +65,16 @@ public class Adapter extends BaseAdapter {
     }
 
     private static class ViewHolder {
-        TextView tvProductname;
-        TextView tvNhsxname;
-        TextView tvDatesx;
-        TextView tvQuicach;
+        TextView tv_prname;
+        TextView tv_nhsxname2;
+        TextView tv_nhsxname;
+        TextView tv_nhsxname3;
+        TextView tv_nhsxname4;
+        TextView tv_nhsxname5;
+        TextView tv_nhsxname6;
+        TextView tv_gender;
+
+        TextView tv_date;
         ImageView icDelete;
         ImageView icEdit;
     }
@@ -79,22 +86,36 @@ public class Adapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(rowProductLayout, null);
-            holder.tvProductname = view.findViewById(R.id.tv_prname);
-            holder.tvDatesx = view.findViewById(R.id.tv_date);
-            holder.tvQuicach = view.findViewById(R.id.tv_gender);
+            holder.tv_prname = view.findViewById(R.id.tv_prname);
+            holder.tv_nhsxname2 = view.findViewById(R.id.tv_nhsxname2);
+            holder.tv_nhsxname = view.findViewById(R.id.tv_nhsxname);
+            holder.tv_nhsxname3 = view.findViewById(R.id.tv_nhsxname3);
+            holder.tv_nhsxname4 = view.findViewById(R.id.tv_nhsxname4);
+            holder.tv_nhsxname5 = view.findViewById(R.id.tv_nhsxname5);
+            holder.tv_nhsxname6 = view.findViewById(R.id.tv_nhsxname6);
+            holder.tv_date = view.findViewById(R.id.tv_date);
+            holder.tv_gender = view.findViewById(R.id.tv_gender);
+
+
+
             holder.icEdit = view.findViewById(R.id.iv_edit);
             holder.icDelete = view.findViewById(R.id.iv_delete);
-            holder.tvNhsxname = view.findViewById(R.id.tv_nhsxname);
             view.setTag(holder);
 
         } else {
             holder = (ViewHolder) view.getTag();
         }
         Product product = productList.get(position);
-        holder.tvProductname.setText(product.getName());
-        holder.tvDatesx.setText(product.getDatexs());
-        holder.tvNhsxname.setText(product.getIdNhsx());
-        holder.tvQuicach.setText(product.getQuicach());
+        holder.tv_nhsxname2.setText("ID: " + product.getId());
+        holder.tv_nhsxname.setText("Name: " + product.getName());
+        holder.tv_prname.setText(product.getName());
+        holder.tv_nhsxname3.setText("Date: " + product.getDatexs());
+        holder.tv_nhsxname4.setText("Gender: " + "NAM");
+        holder.tv_nhsxname5.setText("Address: " + "TP. Ho Chi Minh");
+        holder.tv_nhsxname6.setText("Major: " + product.getIdNhsx());
+        holder.tv_date.setText("Date SX: " + product.getDatexs());
+        holder.tv_gender.setText("Quy Cách: " + product.getQuicach());
+
         holder.icDelete.setOnClickListener(v -> context.deleteProduct(product));
         holder.icEdit.setOnClickListener(v -> context.showDialog(MainActivity.DialogType.UPDATE, product));
         return view;

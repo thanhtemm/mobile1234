@@ -47,10 +47,6 @@ public class MainActivity extends AppCompatActivity {
         icAdd = findViewById(R.id.ivAdd);
         icAdd.setOnClickListener(v -> showDialog(DialogType.CREATE, null));
 
-
-
-
-
         apiService = APIClient.getClient().create(ApiService.class);
         listView = findViewById(R.id.lv_Product);
         adapter = new Adapter(MainActivity.this, productList, nsxList, R.layout.row_product);
@@ -155,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     productList = response.body();
                     adapter.setProductList(productList);
-                    adapter.notifyDataSetChanged();
                 } else {
                     // Xử lý lỗi
                 }
